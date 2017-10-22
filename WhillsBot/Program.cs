@@ -27,6 +27,8 @@ namespace WhillsBot
 
             handler = new CommandHandler(client);
 
+            await client.SetGameAsync("!help");
+
             Console.Write("Channel ID: ");
             ulong channelId = Convert.ToUInt64(Console.ReadLine());
 

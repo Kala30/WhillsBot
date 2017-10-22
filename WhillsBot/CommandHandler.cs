@@ -43,6 +43,9 @@ namespace WhillsBot
                 {
                     await context.Channel.SendMessageAsync(result.ErrorReason);
                 }
+            } else if (msg.Content.ToLower() == "i am your father")
+            {
+                await context.Channel.SendMessageAsync("No... No. That's not true! That's impossible!!");
             }
         }
     }
