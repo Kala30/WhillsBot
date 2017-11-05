@@ -14,36 +14,42 @@ namespace WhillsBot.Modules
         public async Task help()
         {
             await Context.Channel.SendMessageAsync("**Commands**\n" +
-                "`!hello` : Say hello\n" +
-                "`!test` : Test the Whills\n" +
-                "`!echo` : Whills will echo you\n" +
-                "`!joke` : Get a cheesy joke");
+                "Say hello```!hello```\n " +
+                "Test the Whills```!test```\n" +
+                "Whills will echo you```!echo <string>```\n" +
+                "Get a cheesy joke```!joke```");
         }
 
         [Command("Hello")]
-        public async Task greeting()
+        public async Task Hello()
         {
             await Context.Channel.SendMessageAsync("Hello there!");
         }
 
         [Command("Test")]
-        public async Task test()
+        public async Task Test()
         {
             await Context.Channel.SendMessageAsync("This bot is fully armed and operational.");
         }
 
         [Command("Echo")]
-        public async Task echo(string text)
+        public async Task Echo(string text)
         {
             await Context.Channel.SendMessageAsync(text);
         }
 
         [Command("Joke")]
-        public async Task joke()
+        public async Task Joke()
         {
             Random rand = new Random();
             string[] lines = System.IO.File.ReadAllLines(@"..\..\jokes.txt");
             await Context.Channel.SendMessageAsync(lines[rand.Next(0, lines.Length)]);
+        }
+
+        [Command("About")]
+        public async Task About()
+        {
+            await Context.Channel.SendMessageAsync("This bot was created by **Kala0330**.\nView code: https://github.com/Kala30/WhillsBot");
         }
     }
 }

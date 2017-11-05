@@ -22,7 +22,10 @@ namespace WhillsBot
         {
             client = new DiscordSocketClient();
 
-            await client.LoginAsync(TokenType.Bot, "MzcxNDQ0NDU0MzcwMDUwMDU5.DM2EVQ.ZZTDZj54KDtb8NgNfsgZg26pMTs");
+            var tokens = System.IO.File.ReadAllLines(@"..\..\token.txt");
+            Console.WriteLine(tokens[0]);
+
+            await client.LoginAsync(TokenType.Bot, tokens[0]);
             await client.StartAsync();
 
             handler = new CommandHandler(client);

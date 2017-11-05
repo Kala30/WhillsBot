@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="jokes.txt" />
+    <Content Include="token.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
