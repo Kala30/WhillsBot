@@ -13,11 +13,16 @@ namespace WhillsBot.Modules
         [Command("Help")]
         public async Task help()
         {
-            await Context.Channel.SendMessageAsync("**Commands**\n" +
-                "Say hello```!hello```\n " +
-                "Test the Whills```!test```\n" +
-                "Whills will echo you```!echo <string>```\n" +
-                "Get a cheesy joke```!joke```");
+            var eb = new EmbedBuilder();
+            eb.WithTitle("Help");
+            eb.WithDescription("Commands");
+            eb.AddField("`!hello`", "Say hello");
+            eb.AddField("`!test`", "Test the Whills");
+            eb.AddField("`!echo <string>`", "The Whills will echo you");
+            eb.AddField("`!joke`", "Get a cheesy joke");
+            eb.WithColor(Color.Blue);
+
+            await Context.Channel.SendMessageAsync("", false, eb);
         }
 
         [Command("Hello")]
